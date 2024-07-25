@@ -21,3 +21,34 @@
 #include "src/macprefixes.h"
 #include "src/functions.h"
 #include "src/processes.h"
+
+/* ---------------------------------------------------------- */
+#include "src/screenSettings.h"
+
+bool screen_dim_dimmed = ScreenSettings().screen_dim_dimmed;
+int screen_dim_current = ScreenSettings().screen_dim_current;
+int screen_dim_time = ScreenSettings().screen_dim_time;
+int brightness = ScreenSettings().brightness;
+
+ScreenSettings screenSetting = ScreenSettings();
+
+#include "src/keyPress.h"
+
+KeyPress keyPress = KeyPress();
+
+int cursor = keyPress.cursor;
+
+bool rstOverride = keyPress.rstOverride;
+bool isSwitching = keyPress.isSwitching;
+int currentProc = keyPress.currentProc;
+bool portalActive = keyPress.portalActive;
+bool pressedTvButton = keyPress.pressedTvButton;
+bool showQrCode = keyPress.showQrCode;
+bool showAPInfo = keyPress.showAPInfo;
+
+
+
+
+
+
+

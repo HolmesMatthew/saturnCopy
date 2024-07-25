@@ -1,3 +1,8 @@
+
+
+// KeyPress kp = KeyPress();
+// int cursor = kp.cursor;
+
 /**
  * @brief Prints a transition screen with two lines of message and waits one second.
  *
@@ -15,14 +20,14 @@ void transitionScreenTwoLines(char *text1, char *text2) {
   delay(1000);
 }
 
-void drawRoundRectMenuItems(int y, int index) {
-  if (cursor == index) {
-    DISPLAY.fillRoundRect(5, y, DISPLAY.width() - 10, 30, 10, MAIN_COLOR); // Highlight the current menu item
-    DISPLAY.setTextColor(BG_COLOR);
-  } else {
-    DISPLAY.fillRoundRect(5, y, DISPLAY.width() - 10, 30, 10, BG_COLOR);
-    DISPLAY.setTextColor(MAIN_COLOR);
-  }
-  DISPLAY.drawRoundRect(5, y, DISPLAY.width() - 10, 30, 10, MAIN_COLOR); // Draw the border of the menu item
-  DISPLAY.setCursor(20, y + 16);
-}
+// void drawRoundRectMenuItems(int y, int index) {
+//   if (cursor == index) {
+//     DISPLAY.fillRoundRect(5, y, DISPLAY.width() - 10, 30, 10, MAIN_COLOR); // Highlight the current menu item
+//     DISPLAY.setTextColor(BG_COLOR);
+//   } else {
+//     DISPLAY.fillRoundRect(5, y, DISPLAY.width() - 10, 30, 10, BG_COLOR);
+//     DISPLAY.setTextColor(MAIN_COLOR);
+//   }
+//   DISPLAY.drawRoundRect(5, y, DISPLAY.width() - 10, 30, 10, MAIN_COLOR); // Draw the border of the menu item
+//   DISPLAY.setCursor(20, y + 16);
+// }

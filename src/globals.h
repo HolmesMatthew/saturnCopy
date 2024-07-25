@@ -1,0 +1,23 @@
+#include <Arduino.h>
+#include <M5Cardputer.h>
+#include <IRremoteESP8266.h>
+#include <IRsend.h>
+#include <DNSServer.h>
+#include <WebServer.h>
+#include <BLEUtils.h>
+#include <BLEServer.h>
+#include <EEPROM.h>
+#include <WiFi.h>
+
+#include "src/settings.h"
+#include "src/language.h"
+#include "src/infrared.h"
+#include "src/beacon.h"
+#include "src/deauth.h"
+#include "src/sd.h"
+#include "src/portal.h"
+#include "src/applejuice.h"
+#include "src/sounds.h"
+#include "src/macprefixes.h"
+#include "src/functions.h"
+#include "src/processes.h"

@@ -72,12 +72,12 @@ static size_t rec_record_idx = 2;
 static size_t draw_record_idx = 0;
 static int16_t *rec_data;
 
-int cursor = 0;
+// int cursor = 0;
 int wifict = 0;
-bool rstOverride = false;
-bool isSwitching = true;
-int currentProc = 1;
-bool portalActive = false;
+// bool rstOverride = false;
+// bool isSwitching = true;
+// int currentProc = 1;
+// bool portalActive = false;
 const byte PortalTickTimer = 1000;
 
 wifi_ap_record_t ap_record;
@@ -90,6 +90,6 @@ String bssidToCheck;
 #define EEPROM_SIZE 64
 
 // Others
-bool pressedTvButton = false;
-bool showQrCode = false;
-bool showAPInfo = false;
+// bool pressedTvButton = false;
+// bool showQrCode = false;
+// bool showAPInfo = false;

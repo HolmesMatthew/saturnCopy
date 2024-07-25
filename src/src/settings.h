@@ -1,3 +1,4 @@
+
 // Settings
 #define CARDPUTER
 #define SDCARD
@@ -78,15 +79,12 @@ bool isSwitching = true;
 int currentProc = 1;
 bool portalActive = false;
 const byte PortalTickTimer = 1000;
-int brightness = 100;
+
 wifi_ap_record_t ap_record;
 String apSsidName = String("");
 String bssidToCheck;
 
-// Screen
-bool screen_dim_dimmed = false;
-int screen_dim_current = 0;
-int screen_dim_time = 240;
+
 
 // EEPROM
 #define EEPROM_SIZE 64

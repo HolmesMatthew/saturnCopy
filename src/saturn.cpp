@@ -39,6 +39,7 @@
 
 #include "globals.h"
 
+#include "src/screenSettings.h"
 
 IRsend irsend(IR_SEND_PIN);
 
@@ -316,22 +317,10 @@ void qrDrawMenu(int size) {
     }
   }
 }
-void screenBrightness(int bright){
-  #if defined(BACKLIGHT)
-    int bl = MINBRIGHT + round(((255 - MINBRIGHT) * bright / 100)); 
-    analogWrite(BACKLIGHT, bl);
-  #endif
-}
-int uptime(){
-  return(int(millis() / 1000));
-}
-void dimTimer(){
-  if(screen_dim_dimmed){
-    screenBrightness(brightness);
-    screen_dim_dimmed = false;
-  }
-  screen_dim_current = uptime() + screen_dim_time + 2;
-}
+// screenBrightness -------------------------------------------------------
+
+
+// keyPress ---------------------------------------------------------------
 bool checkNextPress() {
   M5Cardputer.update();
   if (M5Cardputer.Keyboard.isKeyPressed(';')) {
